@@ -1,9 +1,10 @@
 streamlit
-fpdf
+fpdf2
 pandas
 numpy
 matplotlib
 seaborn
 scikit-learn
+
 
 
