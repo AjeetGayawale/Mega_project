@@ -6,8 +6,11 @@ from fpdf import FPDF
 from datetime import datetime
 
 # ---- Load pipeline (preprocessing + model) ----
-with open("churnmodel_fix.pkl", "rb") as f:
-    pipeline = joblib.load(f)
+try:
+    pipeline = joblib.load("churnmodel_fix.pkl")  # this is your pickle model
+except Exception as e:
+    st.error(f"❌ Failed to load model: {e}")
+    st.stop()
 
 st.set_page_config(page_title="Telco Churn Prediction", layout="centered")
 st.title("📊 Telco Customer Churn Prediction Dashboard")
@@ -149,3 +152,4 @@ if st.button("🔍 Predict"):
 
 
     
+
